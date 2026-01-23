@@ -74,3 +74,20 @@ keybind = cmd+w=close_surface
 # 改行
 keybind = shift+enter=text:\n
 
+# テーマ
+theme = kanagawa wave
+
+# フォント
+font-family = BlexMono Nerd Font Mono
+
+# ウィンドウ内
+window-padding-x = 10
+window-padding-y = 10
+window-padding-balance = true
+
+
+macos-titlebar-style = transparent
+
+
+keybind = "cmd+left=previous_tab"
+keybind = "cmd+right=next_tab"
