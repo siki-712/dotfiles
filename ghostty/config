@@ -49,10 +49,10 @@
 # resize-overlay-duration = 4s 200ms
 
 # 背景の透過度（0.0 〜 1.0）
-background-opacity = 0.35
+background-opacity = 0.67
 
 # 背景のぼかし（macOS のみ）
-background-blur-radius = 30
+background-blur-radius = 50
 
 # 新しいタブを開く
 keybind = cmd+t=new_tab

@@ -13,6 +13,11 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'ryanoasis/vim-devicons'
+Plug 'RRethy/vim-illuminate'
+Plug 'kevinhwang91/promise-async'
+Plug 'kevinhwang91/nvim-ufo'
+Plug 'folke/which-key.nvim'
+Plug 'folke/todo-comments.nvim'
 call plug#end()
 
 " カラースキーム
@@ -29,6 +34,11 @@ nnoremap <C-h> :NERDTreeFocus<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 nnoremap <C-p> :FilesProject<CR>
 nnoremap <C-g> :RgProject<CR>
+
+" プラグイン管理
+nnoremap <Leader>pi :PlugInstall<CR>
+nnoremap <Leader>pu :PlugUpdate<CR>
+nnoremap <Leader>pc :PlugClean<CR>
 
 " バッファ操作
 nnoremap <Tab> :bnext<CR>
@@ -77,6 +87,31 @@ require('gitsigns').setup({
 
 -- indent-blankline
 require('ibl').setup()
+
+-- which-key
+require('which-key').setup()
+
+-- todo-comments
+require('todo-comments').setup()
+
+-- nvim-ufo (折りたたみ)
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+require('ufo').setup({
+  provider_selector = function(bufnr, filetype, buftype)
+    return {'treesitter', 'indent'}
+  end
+})
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
+
+-- vim-illuminate (カーソル下の単語をハイライト)
+require('illuminate').configure({
+  delay = 100,
+  filetypes_denylist = {'nerdtree', 'fugitive'},
+})
 
 -- 相対パス:行番号 をクリップボードにコピー（NERDTree以外）
 vim.keymap.set('n', 'yp', function()
