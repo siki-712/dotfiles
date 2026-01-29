@@ -1,5 +1,6 @@
 set shiftwidth=4
 set tabstop=4
+set clipboard=unnamedplus
 call plug#begin()
 Plug 'ntk148v/vim-horizon'
 Plug 'rebelot/kanagawa.nvim'
