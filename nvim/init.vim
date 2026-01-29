@@ -62,8 +62,10 @@ autocmd VimEnter * ++nested call s:RestoreLastFile() | NERDTree | wincmd p
 function! s:RestoreLastFile()
   " 引数なしで起動した場合のみ
   if argc() == 0 && len(v:oldfiles) > 0
+    let cwd = getcwd()
     for f in v:oldfiles
-      if filereadable(f)
+      " 現在のディレクトリ内のファイルのみを対象にする
+      if stridx(f, cwd) == 0 && filereadable(f)
         execute 'edit' fnameescape(f)
         break
       endif
