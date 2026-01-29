@@ -116,6 +116,12 @@ require('illuminate').configure({
   filetypes_denylist = {'nerdtree', 'fugitive'},
 })
 
+-- diffview.nvim
+vim.keymap.set('n', '<Leader>dd', ':DiffviewOpen develop<CR>', { desc = 'Diff with develop' })
+vim.keymap.set('n', '<Leader>dm', ':DiffviewOpen main<CR>', { desc = 'Diff with main' })
+vim.keymap.set('n', '<Leader>do', ':DiffviewOpen ', { desc = 'Diff with branch...' })
+vim.keymap.set('n', '<Leader>dc', ':DiffviewClose<CR>', { desc = 'Close diffview' })
+
 -- 相対パス:行番号 をクリップボードにコピー（NERDTree以外）
 vim.keymap.set('n', 'yp', function()
   if vim.bo.filetype == 'nerdtree' then return end
