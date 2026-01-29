@@ -117,10 +117,9 @@ require('illuminate').configure({
 })
 
 -- diffview.nvim
-vim.keymap.set('n', '<Leader>dd', ':DiffviewOpen develop<CR>', { desc = 'Diff with develop' })
-vim.keymap.set('n', '<Leader>dm', ':DiffviewOpen main<CR>', { desc = 'Diff with main' })
-vim.keymap.set('n', '<Leader>do', ':DiffviewOpen ', { desc = 'Diff with branch...' })
-vim.keymap.set('n', '<Leader>dc', ':DiffviewClose<CR>', { desc = 'Close diffview' })
+vim.api.nvim_create_user_command('Vd', 'DiffviewOpen develop', {})
+vim.api.nvim_create_user_command('Vm', 'DiffviewOpen main', {})
+vim.api.nvim_create_user_command('Vc', 'DiffviewClose', {})
 
 -- 相対パス:行番号 をクリップボードにコピー（NERDTree以外）
 vim.keymap.set('n', 'yp', function()
