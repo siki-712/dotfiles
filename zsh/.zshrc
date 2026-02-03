@@ -151,3 +151,6 @@ eval "$($HOME/.local/bin/mise activate zsh)"
 
 # zsh-autosuggestions
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# zsh-syntax-highlighting (must be at the end)
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
